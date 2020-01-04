@@ -12,14 +12,24 @@ public class BannerController {
     @Autowired
 //    主动注入
     private ISkill diana;
+
+//    @Autowired
+////    被动注入
+//    @Qualifier(value = "diana")
+//    private ISkill lreliass;
+
+    private ISkill camile;
     @Autowired
-//    被动注入
-    @Qualifier(value = "diana")
-    private ISkill lreliass;
+    public void setCamile(ISkill camile) {
+        this.camile = camile;
+    }
+
+//    @Autowired
+//    private ISkill camile;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        lreliass.q();
+        camile.q();
         return "Hello,zhaobao18300";
     }
 }
