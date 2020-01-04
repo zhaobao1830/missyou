@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class HeroConfiguration {
+
    @Bean
     public ISkill camile() {
         return new Camile();
