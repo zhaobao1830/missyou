@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.*;
 public class BannerController {
     @Autowired
 //    主动注入
-    private ISkill diana;
+    private ISkill iSkill;
 
 //    @Autowired
 ////    被动注入
 //    @Qualifier(value = "diana")
 //    private ISkill lreliass;
 
-    private ISkill camile;
-    @Autowired
-    public void setCamile(ISkill camile) {
-        this.camile = camile;
-    }
+//    private ISkill camile;
+//    @Autowired
+//    public void setCamile(ISkill camile) {
+//        this.camile = camile;
+//    }
 
 //    @Autowired
 //    private ISkill camile;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        camile.q();
+        iSkill.q();
         return "Hello,zhaobao18300";
     }
 }
