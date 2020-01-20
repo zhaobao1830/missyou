@@ -1,5 +1,7 @@
 package com.zb.missyou.api.v1;
 
+import com.zb.missyou.exception.http.ForbiddenException;
+import com.zb.missyou.exception.http.NotFoundException;
 import com.zb.missyou.sample.ISkill;
 import com.zb.missyou.sample.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/v1/banner")
 public class BannerController {
-    @Autowired
+//    @Autowired
 //    主动注入
-    private ISkill iSkill;
+//    private ISkill iSkill;
 
 //    @Autowired
 ////    被动注入
@@ -28,8 +30,10 @@ public class BannerController {
 //    private ISkill camile;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
-        iSkill.q();
-        return "Hello,zhaobao18300";
+    public String test() throws Exception {
+        System.out.println("tttttttttt");
+        throw new ForbiddenException(1111);
+//        iSkill.q();
+//        return "Hello,zhaobao18300";
     }
 }
