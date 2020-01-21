@@ -1,6 +1,8 @@
 package com.zb.missyou.core;
 
+import com.zb.missyou.core.configuration.ExceptionCodeConfiguration;
 import com.zb.missyou.exception.http.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +18,9 @@ import java.awt.*;
 @ControllerAdvice
 public class GlobalExceptionAdvice {
 
+    @Autowired
+    private ExceptionCodeConfiguration exceptionCodeConfiguration;
+
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
@@ -30,7 +35,7 @@ public class GlobalExceptionAdvice {
     public ResponseEntity handleHttpException(HttpServletRequest req, HttpException e) {
         String requestUrl = req.getRequestURI();
         String method = req.getMethod();
-        UnifyResponse message = new UnifyResponse(e.getCode(), "服务器异常", method + " " + requestUrl);
+        UnifyResponse message = new UnifyResponse(e.getCode(), exceptionCodeConfiguration.getMessages(e.getCode()), method + " " + requestUrl);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON);
         HttpStatus httpStatus = HttpStatus.resolve(e.getHttpStatusCode());

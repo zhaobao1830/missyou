@@ -31,8 +31,7 @@ public class BannerController {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() throws Exception {
-        System.out.println("tttttttttt");
-        throw new ForbiddenException(1111);
+        throw new ForbiddenException(10001);
 //        iSkill.q();
 //        return "Hello,zhaobao18300";
     }
