@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/v1/banner")
+@RequestMapping(value = "/banner")
 public class BannerController {
 //    @Autowired
 //    主动注入
