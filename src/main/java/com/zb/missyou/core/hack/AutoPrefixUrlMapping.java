@@ -7,8 +7,10 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
+// 继承RequestMappingHandlerMapping，重构 getMappingForMethod方法
 public class AutoPrefixUrlMapping extends RequestMappingHandlerMapping {
 
+    // 获取application.properties配置文件里的missyou.api-package
     @Value("${missyou.api-package}")
     private String apiPackagePath;
 
