@@ -1,5 +1,6 @@
 package com.zb.missyou.api.v1;
 
+import com.zb.missyou.dto.PersonDTO;
 import com.zb.missyou.exception.http.ForbiddenException;
 import com.zb.missyou.exception.http.NotFoundException;
 import com.zb.missyou.sample.ISkill;
@@ -29,10 +30,8 @@ public class BannerController {
 //    @Autowired
 //    private ISkill camile;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() throws Exception {
-        throw new ForbiddenException(10001);
-//        iSkill.q();
-//        return "Hello,zhaobao18300";
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public void test(@RequestBody PersonDTO personDTO) {
+        System.out.println(personDTO.getName());
     }
 }
