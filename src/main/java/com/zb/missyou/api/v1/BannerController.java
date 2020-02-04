@@ -7,6 +7,7 @@ import com.zb.missyou.sample.ISkill;
 import com.zb.missyou.sample.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,7 +32,7 @@ public class BannerController {
 //    private ISkill camile;
 
     @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public void test(@RequestBody PersonDTO personDTO) {
+    public void test(@RequestBody @Validated PersonDTO personDTO) {
         System.out.println(personDTO.getName());
     }
 }
