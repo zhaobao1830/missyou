@@ -1,5 +1,7 @@
-server:
-  port: 8081
+spring:
+  profiles:
+    active: dev
+
 
 missyou:
   api-package: com.zb.missyou.api
