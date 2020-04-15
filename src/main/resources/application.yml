@@ -2,7 +2,10 @@
 spring:
   profiles:
     active: dev
-
+  jpa:
+    hibernate:
+#      create-drop的话，每次修改字段，就会把表清空
+      ddl-auto: update
 
 missyou:
   api-package: com.zb.missyou.api

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Banner {
+    // 这是表的主键
     @Id
     private String id;
     private String name;
