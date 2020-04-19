@@ -9,7 +9,9 @@ import java.util.List;
 public class Banner {
     // 这是表的主键
     @Id
-    private String id;
+    // 自增长
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(length = 16)
     private String name;
@@ -20,5 +22,6 @@ public class Banner {
     private String title;
 
     @OneToMany
+    @JoinColumn(name = "bannerId")
     private List<BannerItem> items;
 }
