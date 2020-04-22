@@ -1,5 +1,7 @@
 package com.zb.missyou.service;
 
+import com.zb.missyou.model.Banner;
+
 public interface BannerService {
-    public Void getByName(String name);
+    public Banner getByName(String name);
 }
