@@ -21,7 +21,6 @@ public class Banner {
     private String img;
     private String title;
 
-    @OneToMany
-    @JoinColumn(name = "bannerId")
+    @OneToMany(mappedBy = "banner")
     private List<BannerItem> items;
 }
