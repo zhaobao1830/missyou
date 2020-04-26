@@ -1,10 +1,6 @@
 package com.zb.missyou.api.v1;
 
-import com.zb.missyou.dto.PersonDTO;
-import com.zb.missyou.model.Banner;
-import com.zb.missyou.service.BannerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
