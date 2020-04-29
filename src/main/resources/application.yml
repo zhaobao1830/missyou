@@ -6,6 +6,12 @@ spring:
     hibernate:
 #      create-drop的话，每次修改字段，就会把表清空
       ddl-auto: none
+  jackson:
+    # 返回的属性是以下划线连接的
+    property-naming-strategy: SNAKE_CASE
+    # 返回的时间转换为时间戳（毫秒）
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: true
 
 missyou:
   api-package: com.zb.missyou.api
