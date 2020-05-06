@@ -1,5 +1,10 @@
 ﻿package com.zb.missyou.vo;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class SpuSimplifyVO {
     private Long id;
     private String title;
