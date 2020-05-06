@@ -6,6 +6,8 @@ import com.zb.missyou.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SpuServiceImpl implements SpuService {
 
@@ -15,5 +17,10 @@ public class SpuServiceImpl implements SpuService {
     @Override
     public Spu getSpu(Long id) {
         return spuRepository.findOneById(id);
+    }
+
+    @Override
+    public List<Spu> getLatestPagingSpu() {
+        return spuRepository.findAll();
     }
 }
