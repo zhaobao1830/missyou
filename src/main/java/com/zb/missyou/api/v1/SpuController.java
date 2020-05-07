@@ -37,10 +37,13 @@ public class SpuController {
 
     @RequestMapping(value = "/latest", method = RequestMethod.GET)
     public List<SpuSimplifyVO> getLatestSpuList() {
-//        使用DozerBeanMapper拷贝属性
+        // 使用DozerBeanMapper拷贝属性
         Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+        // 从数据库查询出的数据
         List<Spu> spuList = spuService.getLatestPagingSpu();
+        // new Vo list
         List<SpuSimplifyVO> vos = new ArrayList<>();
+        // 将查询出的数据循环赋值到vo中
         spuList.forEach(s -> {
             // s是源文件，SpuSimplifyVO.class是目标文件的class
             SpuSimplifyVO vo = mapper.map(s, SpuSimplifyVO.class);
