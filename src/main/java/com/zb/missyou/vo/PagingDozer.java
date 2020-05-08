@@ -7,6 +7,9 @@ import org.springframework.data.domain.Page;
 import java.util.ArrayList;
 import java.util.List;
 
+// 对分页进行再次封装，添加DozerBeanMapper功能
+// 如果不需要进行vo赋值，直接用Paging就行
+// 需要俩个泛型 T是源文件的类型  K是目标文件的类型
 public class PagingDozer<T, K> extends Paging{
     @SuppressWarnings("unchecked")
     public PagingDozer(Page<T> pageT, Class<K> classk) {
