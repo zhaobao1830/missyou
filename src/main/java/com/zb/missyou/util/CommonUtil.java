@@ -1,4 +1,4 @@
-﻿package com.zb.missyou.util;
+package com.zb.missyou.util;
 
 import com.zb.missyou.bo.PageCounter;
 

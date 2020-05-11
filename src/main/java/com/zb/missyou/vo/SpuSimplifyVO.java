@@ -1,4 +1,4 @@
-﻿package com.zb.missyou.vo;
+package com.zb.missyou.vo;
 
 import lombok.Getter;
 import lombok.Setter;

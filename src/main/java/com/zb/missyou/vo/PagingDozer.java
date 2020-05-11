@@ -1,4 +1,4 @@
-﻿package com.zb.missyou.vo;
+package com.zb.missyou.vo;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;
