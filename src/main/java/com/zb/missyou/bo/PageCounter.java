@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 @Builder
 public class PageCounter {
-    private Integer page;
-    private Integer count;
+//    当前页码
+    private Integer pageNum;
+//    每页的条数
+    private Integer pageSize;
 }

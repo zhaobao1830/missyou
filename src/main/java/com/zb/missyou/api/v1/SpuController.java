@@ -1,10 +1,7 @@
 package com.zb.missyou.api.v1;
 
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
 import com.zb.missyou.bo.PageCounter;
 import com.zb.missyou.exception.http.NotFoundException;
-import com.zb.missyou.model.Banner;
 import com.zb.missyou.model.Spu;
 import com.zb.missyou.service.SpuService;
 import com.zb.missyou.util.CommonUtil;
@@ -16,8 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Positive;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/spu")
@@ -42,7 +37,7 @@ public class SpuController {
     ) {
         PageCounter pageCounter = CommonUtil.converToPageParameter(start, count);
         // 从数据库查询出的数据
-        Page<Spu> page = spuService.getLatestPagingSpu(pageCounter.getPage(), pageCounter.getCount());
+        Page<Spu> page = spuService.getLatestPagingSpu(pageCounter.getPageNum(), pageCounter.getPageSize());
         return new PagingDozer<>(page, SpuSimplifyVO.class);
     }
 
@@ -52,7 +47,7 @@ public class SpuController {
                                                            @RequestParam(name = "start", defaultValue = "0") Integer start,
                                                            @RequestParam(name = "count", defaultValue = "10") Integer count) {
         PageCounter pageCounter = CommonUtil.converToPageParameter(start, count);
-        Page<Spu> page = spuService.getByCategoryId(id, isRoot, pageCounter.getPage(), pageCounter.getCount());
+        Page<Spu> page = spuService.getByCategoryId(id, isRoot, pageCounter.getPageNum(), pageCounter.getPageSize());
         return new PagingDozer<>(page, SpuSimplifyVO.class);
     }
 }

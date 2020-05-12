@@ -22,14 +22,14 @@ public class SpuServiceImpl implements SpuService {
     }
 
     @Override
-    public Page<Spu> getLatestPagingSpu(Integer pageNum, Integer size) {
-        Pageable page = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
+    public Page<Spu> getLatestPagingSpu(Integer pageNum, Integer pageSize) {
+        Pageable page = PageRequest.of(pageNum, pageSize, Sort.by("createTime").descending());
         return spuRepository.findAll(page);
     }
 
     @Override
-    public Page<Spu> getByCategoryId(Long cid, Boolean isRoot, Integer pageNum, Integer size) {
-        Pageable page = PageRequest.of(pageNum, size);
+    public Page<Spu> getByCategoryId(Long cid, Boolean isRoot, Integer pageNum, Integer pageSize) {
+        Pageable page = PageRequest.of(pageNum, pageSize);
         if (isRoot) {
             return spuRepository.findByRootCategoryIdOrderByCreateTime(cid, page);
         } else {
