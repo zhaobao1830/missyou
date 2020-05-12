@@ -23,7 +23,7 @@ public class SpuController {
     private SpuService spuService;
 
     @RequestMapping(value = "/id/{id}/detail", method = RequestMethod.GET)
-    public Spu getDetail(@PathVariable @Positive Long id) {
+    public Spu getDetail(@PathVariable @Positive(message = "必须正整数") Long id) {
         Spu spu = spuService.getSpu(id);
         if (spu == null) {
             throw new NotFoundException(30003);
